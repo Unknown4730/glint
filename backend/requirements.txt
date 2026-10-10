@@ -1,0 +1,40 @@
+# GLINT backend requirements
+# Verified on Python 3.11 (Windows 10/11, Linux) - CPU only, no CUDA, no GPU.
+#
+# Every line has a single, identifiable purpose:
+#   fastapi / uvicorn / python-multipart -> HTTP API + multipart upload parsing
+#   pydantic                            -> request & response validation
+#   rapidocr / onnxruntime              -> local OCR inference on the CPU.
+#                                          rapidocr 3.10.0 ships the PP-OCRv6
+#                                          "small" det/rec ONNX models and the
+#                                          PP-OCRv4 mobile classifier inside the
+#                                          wheel, so no model download is needed
+#                                          for the default profile.
+#   pymupdf                             -> renders PDF pages to images
+#   pillow                              -> image verification, EXIF, resizing
+#   numpy                               -> array maths for the brightness check
+#   pandas / matplotlib                 -> history analytics + one PNG chart
+#   pytest / httpx                      -> automated tests (TestClient)
+
+# --- web layer ---
+fastapi==0.143.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+pydantic==2.14.0
+
+# --- local OCR (CPU, ONNX Runtime) ---
+rapidocr==3.10.0
+onnxruntime==1.23.2
+
+# --- document handling ---
+pymupdf==1.28.2
+pillow==12.3.0
+numpy==2.4.6
+
+# --- analytics ---
+pandas==3.0.6
+matplotlib==3.11.2
+
+# --- tests ---
+pytest==9.1.1
+httpx==0.28.1

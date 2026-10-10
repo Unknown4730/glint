@@ -1,0 +1,53 @@
+# --- Python ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Node / frontend build ---
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# --- Glint runtime data (SQLite database, temporary files) ---
+backend/data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# --- Secrets / local environment ---
+.env
+.env.local
+.env.*.local
+frontend/.env
+
+# --- OCR model cache (only used when a non-bundled model type is requested) ---
+models/*.onnx
+!backend/**/models/.gitkeep
+
+# --- Uploaded documents must never be committed ---
+uploads/
+tmp/
+temp/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+*.log
+logs/
