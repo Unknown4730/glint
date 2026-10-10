@@ -1,0 +1,7 @@
+# Keep Windows scripts with CRLF line endings in every clone.
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Everything else stays LF; git handles the rest.
+* text=auto
